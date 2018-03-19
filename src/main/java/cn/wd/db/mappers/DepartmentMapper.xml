@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.wd.db.dao.DepartmentMapper" >
+  <resultMap id="BaseResultMap" type="cn.wd.pojo.Department" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="DM" property="dm" jdbcType="VARCHAR" />
+    <result column="PDM" property="pdm" jdbcType="VARCHAR" />
+    <result column="NAME" property="name" jdbcType="VARCHAR" />
+    <result column="DWXZ" property="dwxz" jdbcType="VARCHAR" />
+    <result column="DWJB" property="dwjb" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, DM, PDM, NAME, DWXZ, DWJB
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from j_dw
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from j_dw
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.wd.pojo.Department" >
+    insert into j_dw (ID, DM, PDM, 
+      NAME, DWXZ, DWJB)
+    values (#{id,jdbcType=INTEGER}, #{dm,jdbcType=VARCHAR}, #{pdm,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{dwxz,jdbcType=VARCHAR}, #{dwjb,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.wd.pojo.Department" >
+    insert into j_dw
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="dm != null" >
+        DM,
+      </if>
+      <if test="pdm != null" >
+        PDM,
+      </if>
+      <if test="name != null" >
+        NAME,
+      </if>
+      <if test="dwxz != null" >
+        DWXZ,
+      </if>
+      <if test="dwjb != null" >
+        DWJB,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="dm != null" >
+        #{dm,jdbcType=VARCHAR},
+      </if>
+      <if test="pdm != null" >
+        #{pdm,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="dwxz != null" >
+        #{dwxz,jdbcType=VARCHAR},
+      </if>
+      <if test="dwjb != null" >
+        #{dwjb,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.wd.pojo.Department" >
+    update j_dw
+    <set >
+      <if test="dm != null" >
+        DM = #{dm,jdbcType=VARCHAR},
+      </if>
+      <if test="pdm != null" >
+        PDM = #{pdm,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        NAME = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="dwxz != null" >
+        DWXZ = #{dwxz,jdbcType=VARCHAR},
+      </if>
+      <if test="dwjb != null" >
+        DWJB = #{dwjb,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.wd.pojo.Department" >
+    update j_dw
+    set DM = #{dm,jdbcType=VARCHAR},
+      PDM = #{pdm,jdbcType=VARCHAR},
+      NAME = #{name,jdbcType=VARCHAR},
+      DWXZ = #{dwxz,jdbcType=VARCHAR},
+      DWJB = #{dwjb,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

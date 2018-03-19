@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.wd.db.dao.CarreparisMapper_Ext" >
+  <resultMap id="BaseResultMap" type="cn.wd.pojo.Carreparis" >
+    <result column="carname" property="carname" jdbcType="VARCHAR" />
+    <result column="car_id" property="carId" jdbcType="INTEGER" />
+    <result column="exel_id" property="exelId" jdbcType="INTEGER" />
+    <result column="time" property="time" jdbcType="DATE" />
+    <result column="location" property="location" jdbcType="VARCHAR" />
+    <result column="fee" property="fee" jdbcType="INTEGER" />
+    <result column="type" property="type" jdbcType="VARCHAR" />
+  </resultMap>
+  <select id="getCount" resultType="java.lang.Integer">
+		select count(*) from v_carreparis
+	</select>
+	<select id="selectList" resultMap="BaseResultMap" parameterType="cn.wd.pojo.Carreparis">
+		select * from v_carreparis 
+		<where>
+			<if test="exelId != null">
+				AND	 exel_id = #{exelId,jdbcType=INTEGER}
+			</if>
+			<if test="time != null">
+				AND	 time = #{time,jdbcType=INTEGER}
+			</if>
+			<if test="location != null">
+				AND	 location = #{location,jdbcType=INTEGER}
+			</if>
+			<if test="fee != null">
+				AND	 fee = #{fee,jdbcType=INTEGER}
+			</if>
+			<if test="type != null">
+				AND	 type = #{type,jdbcType=INTEGER}
+			</if>
+			<if test="carname != null">
+				AND	 carname = #{carname,jdbcType=INTEGER}
+			</if>
+			<if test="carId != null">
+				AND	 car_id = #{carId,jdbcType=INTEGER}
+			</if>
+		</where>
+		</select>
+</mapper>

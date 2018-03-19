@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.wd.db.dao.CarinfoMapper" >
+  <resultMap id="BaseResultMap" type="cn.wd.pojo.Carinfo" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="car_id" property="carId" jdbcType="INTEGER" />
+    <result column="carname" property="carname" jdbcType="VARCHAR" />
+    <result column="cartype" property="cartype" jdbcType="VARCHAR" />
+    <result column="number" property="number" jdbcType="VARCHAR" />
+    <result column="carage" property="carage" jdbcType="INTEGER" />
+    <result column="state" property="state" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, car_id, carname, cartype, number, carage, state
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from j_carinfo
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from j_carinfo
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.wd.pojo.Carinfo" >
+    insert into j_carinfo (id, car_id, carname, 
+      cartype, number, carage, 
+      state)
+    values (#{id,jdbcType=INTEGER}, #{carId,jdbcType=INTEGER}, #{carname,jdbcType=VARCHAR}, 
+      #{cartype,jdbcType=VARCHAR}, #{number,jdbcType=VARCHAR}, #{carage,jdbcType=INTEGER}, 
+      #{state,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.wd.pojo.Carinfo" >
+    insert into j_carinfo
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="carId != null" >
+        car_id,
+      </if>
+      <if test="carname != null" >
+        carname,
+      </if>
+      <if test="cartype != null" >
+        cartype,
+      </if>
+      <if test="number != null" >
+        number,
+      </if>
+      <if test="carage != null" >
+        carage,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="carId != null" >
+        #{carId,jdbcType=INTEGER},
+      </if>
+      <if test="carname != null" >
+        #{carname,jdbcType=VARCHAR},
+      </if>
+      <if test="cartype != null" >
+        #{cartype,jdbcType=VARCHAR},
+      </if>
+      <if test="number != null" >
+        #{number,jdbcType=VARCHAR},
+      </if>
+      <if test="carage != null" >
+        #{carage,jdbcType=INTEGER},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.wd.pojo.Carinfo" >
+    update j_carinfo
+    <set >
+      <if test="carId != null" >
+        car_id = #{carId,jdbcType=INTEGER},
+      </if>
+      <if test="carname != null" >
+        carname = #{carname,jdbcType=VARCHAR},
+      </if>
+      <if test="cartype != null" >
+        cartype = #{cartype,jdbcType=VARCHAR},
+      </if>
+      <if test="number != null" >
+        number = #{number,jdbcType=VARCHAR},
+      </if>
+      <if test="carage != null" >
+        carage = #{carage,jdbcType=INTEGER},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.wd.pojo.Carinfo" >
+    update j_carinfo
+    set car_id = #{carId,jdbcType=INTEGER},
+      carname = #{carname,jdbcType=VARCHAR},
+      cartype = #{cartype,jdbcType=VARCHAR},
+      number = #{number,jdbcType=VARCHAR},
+      carage = #{carage,jdbcType=INTEGER},
+      state = #{state,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.wd.db.dao.ApplicantsMapper" >
+  <resultMap id="BaseResultMap" type="cn.wd.pojo.Applicants" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="car_id" property="carId" jdbcType="INTEGER" />
+    <result column="location" property="location" jdbcType="VARCHAR" />
+    <result column="reason" property="reason" jdbcType="VARCHAR" />
+    <result column="time" property="time" jdbcType="DATE" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, car_id, location, reason, time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from j_applicants
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from j_applicants
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.wd.pojo.Applicants" >
+    insert into j_applicants (id, car_id, location, 
+      reason, time)
+    values (#{id,jdbcType=INTEGER}, #{carId,jdbcType=INTEGER}, #{location,jdbcType=VARCHAR}, 
+      #{reason,jdbcType=VARCHAR}, #{time,jdbcType=DATE})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.wd.pojo.Applicants" >
+    insert into j_applicants
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="carId != null" >
+        car_id,
+      </if>
+      <if test="location != null" >
+        location,
+      </if>
+      <if test="reason != null" >
+        reason,
+      </if>
+      <if test="time != null" >
+        time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="carId != null" >
+        #{carId,jdbcType=INTEGER},
+      </if>
+      <if test="location != null" >
+        #{location,jdbcType=VARCHAR},
+      </if>
+      <if test="reason != null" >
+        #{reason,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null" >
+        #{time,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.wd.pojo.Applicants" >
+    update j_applicants
+    <set >
+      <if test="carId != null" >
+        car_id = #{carId,jdbcType=INTEGER},
+      </if>
+      <if test="location != null" >
+        location = #{location,jdbcType=VARCHAR},
+      </if>
+      <if test="reason != null" >
+        reason = #{reason,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null" >
+        time = #{time,jdbcType=DATE},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.wd.pojo.Applicants" >
+    update j_applicants
+    set car_id = #{carId,jdbcType=INTEGER},
+      location = #{location,jdbcType=VARCHAR},
+      reason = #{reason,jdbcType=VARCHAR},
+      time = #{time,jdbcType=DATE}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

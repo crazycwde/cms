@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.wd.db.dao.YgMapper" >
+  <resultMap id="BaseResultMap" type="cn.wd.pojo.Yg" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="yg_id" property="ygId" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="sex" property="sex" jdbcType="VARCHAR" />
+    <result column="nationality" property="nationality" jdbcType="VARCHAR" />
+    <result column="birth" property="birth" jdbcType="VARCHAR" />
+    <result column="political" property="political" jdbcType="VARCHAR" />
+    <result column="adress" property="adress" jdbcType="VARCHAR" />
+    <result column="idcard" property="idcard" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="postcode" property="postcode" jdbcType="VARCHAR" />
+    <result column="departId" property="departid" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, yg_id, name, sex, nationality, birth, political, adress, idcard, phone, postcode, 
+    departId
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from j_yg
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from j_yg
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.wd.pojo.Yg" >
+    insert into j_yg (id, yg_id, name, 
+      sex, nationality, birth, 
+      political, adress, idcard, 
+      phone, postcode, departId
+      )
+    values (#{id,jdbcType=INTEGER}, #{ygId,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{sex,jdbcType=VARCHAR}, #{nationality,jdbcType=VARCHAR}, #{birth,jdbcType=VARCHAR}, 
+      #{political,jdbcType=VARCHAR}, #{adress,jdbcType=VARCHAR}, #{idcard,jdbcType=VARCHAR}, 
+      #{phone,jdbcType=VARCHAR}, #{postcode,jdbcType=VARCHAR}, #{departid,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.wd.pojo.Yg" >
+    insert into j_yg
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="ygId != null" >
+        yg_id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="sex != null" >
+        sex,
+      </if>
+      <if test="nationality != null" >
+        nationality,
+      </if>
+      <if test="birth != null" >
+        birth,
+      </if>
+      <if test="political != null" >
+        political,
+      </if>
+      <if test="adress != null" >
+        adress,
+      </if>
+      <if test="idcard != null" >
+        idcard,
+      </if>
+      <if test="phone != null" >
+        phone,
+      </if>
+      <if test="postcode != null" >
+        postcode,
+      </if>
+      <if test="departid != null" >
+        departId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="ygId != null" >
+        #{ygId,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="nationality != null" >
+        #{nationality,jdbcType=VARCHAR},
+      </if>
+      <if test="birth != null" >
+        #{birth,jdbcType=VARCHAR},
+      </if>
+      <if test="political != null" >
+        #{political,jdbcType=VARCHAR},
+      </if>
+      <if test="adress != null" >
+        #{adress,jdbcType=VARCHAR},
+      </if>
+      <if test="idcard != null" >
+        #{idcard,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="postcode != null" >
+        #{postcode,jdbcType=VARCHAR},
+      </if>
+      <if test="departid != null" >
+        #{departid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.wd.pojo.Yg" >
+    update j_yg
+    <set >
+      <if test="ygId != null" >
+        yg_id = #{ygId,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        sex = #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="nationality != null" >
+        nationality = #{nationality,jdbcType=VARCHAR},
+      </if>
+      <if test="birth != null" >
+        birth = #{birth,jdbcType=VARCHAR},
+      </if>
+      <if test="political != null" >
+        political = #{political,jdbcType=VARCHAR},
+      </if>
+      <if test="adress != null" >
+        adress = #{adress,jdbcType=VARCHAR},
+      </if>
+      <if test="idcard != null" >
+        idcard = #{idcard,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="postcode != null" >
+        postcode = #{postcode,jdbcType=VARCHAR},
+      </if>
+      <if test="departid != null" >
+        departId = #{departid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.wd.pojo.Yg" >
+    update j_yg
+    set yg_id = #{ygId,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=VARCHAR},
+      nationality = #{nationality,jdbcType=VARCHAR},
+      birth = #{birth,jdbcType=VARCHAR},
+      political = #{political,jdbcType=VARCHAR},
+      adress = #{adress,jdbcType=VARCHAR},
+      idcard = #{idcard,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      postcode = #{postcode,jdbcType=VARCHAR},
+      departId = #{departid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

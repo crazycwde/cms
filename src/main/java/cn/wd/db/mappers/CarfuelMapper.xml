@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.wd.db.dao.CarfuelMapper" >
+  <resultMap id="BaseResultMap" type="cn.wd.pojo.Carfuel" >
+    <result column="exel_id" property="exelId" jdbcType="INTEGER" />
+    <result column="time" property="time" jdbcType="DATE" />
+    <result column="location" property="location" jdbcType="VARCHAR" />
+    <result column="fee" property="fee" jdbcType="INTEGER" />
+    <result column="fueltype" property="fueltype" jdbcType="VARCHAR" />
+    <result column="carname" property="carname" jdbcType="VARCHAR" />
+  </resultMap>
+ 
+</mapper>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.wd.db.dao.UserMapper_Ext" >
+<resultMap id="BaseResultMap" type="cn.wd.pojo.User" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="yg_id" property="ygId" jdbcType="VARCHAR" />
+    <result column="uname" property="uname" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="pw" property="pw" jdbcType="VARCHAR" />
+    <result column="departId" property="departid" jdbcType="VARCHAR" />
+  </resultMap>
+ <sql id="Base_Column_List" >
+    id, yg_id, uname, name, pw, departId
+  </sql>
+  <select id="select" resultMap="BaseResultMap" parameterType="cn.wd.pojo.User">
+  	select <include refid="Base_Column_List"></include> from j_user 
+  		<where>
+  			<if test="id != null">
+  			AND	id = #{id,jdbcType=INTEGER}
+  			</if>
+  			<if test="ygId != null">
+  			AND	yg_id = #{ygId,jdbcType=VARCHAR}
+  			</if>
+  			<if test="uname != null">
+  			AND	uname = #{uname,jdbcType=VARCHAR}
+  			</if>
+  			<if test="name != null">
+  			AND	name = #{name,jdbcType=VARCHAR}
+  			</if>
+  			<if test="pw != null">
+  			AND	pw = #{pw,jdbcType=VARCHAR}
+  			</if>
+  			<if test="departid != null">
+  			AND	 departId = #{departid,jdbcType=VARCHAR}
+  			</if>
+  		</where>
+  </select>
+</mapper>

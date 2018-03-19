@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="DEBUG">
+	<!--  monitorInterval="10" 日志级别从低到高分为TRACE < DEBUG < INFO < WARN < ERROR < FATAL -->
+	<!-- appender配置 -->
+	<Appenders>
+		<Console name="ConsoleLog" target="SYSTEM_OUT">
+			<PatternLayout pattern="[%c] - %m%n" />
+		</Console>
+		
+	</Appenders>
+	<Loggers>
+		<!-- 将业务dao接口填写进去,并用控制台输出sql即可 -->
+		<logger name="cn.wd.db.dao" level="DEBUG" additivity="false">
+			<appender-ref ref="ConsoleLog" />
+		</logger>
+	</Loggers>
+</Configuration>

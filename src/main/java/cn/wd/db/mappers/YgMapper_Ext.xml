@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.wd.db.dao.YgMapper_Ext" >
+  <resultMap id="BaseResultMap" type="cn.wd.pojo.Yg">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="yg_id" jdbcType="VARCHAR" property="ygId" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="sex" jdbcType="VARCHAR" property="sex" />
+    <result column="nationality" jdbcType="VARCHAR" property="nationality" />
+    <result column="birth" jdbcType="VARCHAR" property="birth" />
+    <result column="political" jdbcType="VARCHAR" property="political" />
+    <result column="adress" jdbcType="VARCHAR" property="adress" />
+    <result column="idcard" jdbcType="VARCHAR" property="idcard" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="postcode" jdbcType="VARCHAR" property="postcode" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, yg_id, name, sex, nationality, birth, political, adress, idcard, phone, postcode, 
+    departId
+  </sql>
+
+</mapper>
