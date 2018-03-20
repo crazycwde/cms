@@ -64,6 +64,33 @@
 				return false;
 			}
 			fuelsOpt.newdialog("updateFuelsDialog", "修改车辆油耗信息", '/console/fuels/updateFuelsUI.do', {"exelId" : fuels[0].exelId});
+		},
+		del : function(index){
+			var delFuels = $("#fuelsList").datagrid("getChecked");
+			if(delFuels.length > 0){
+			var arrID = new Array();
+				for(var i=0; i<delFuels.length; i++){
+					//exelId 不能写错，否则传递不了参数
+					arrID.push(delFuels[i].exelId);
+				}
+			}
+			var url = getContextPath() + '/console/fuels/delFuels.do';
+			$.messager.confirm("确认对话框" , "你想要删除这" + delFuels.length + "条信息吗", function(r){
+				if(r){
+					//JQuery的AJAX函数，使用HTTP GET来加载远程数据，还有其他几种加载方式
+					$.get(url, {exelId: arrID}, function(data){
+						if(data == 'success'){
+							$.messager.alert("提示", "删除成功", "info");
+							$("#fuelsList").datagrid('reload');
+							$("#fuelsList").datagrid('uncheckAll');
+						}else{
+							$.messager.alert("提示", data,"error", function(r){
+								$("#fuelsList").datagrid('reload');
+							});
+						}
+					})
+				}
+			});
 		}
 		
 	}
@@ -75,7 +102,7 @@
 											//为false，当用户点击该复选框的时候才会被选中或取消
 					pagination : true,
 					striped : true,
-					singleSelect : true,    //如果为true，只允许选择一行
+					//singleSelect : true,  单条选中，在删除时不用，可以删除多条信息
 					nowrap : false,
 					pageSize : 25,
 					toolbar : '#fuelsToolbar',

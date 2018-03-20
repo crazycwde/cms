@@ -66,4 +66,9 @@ public class FuelsService {
 		
 		fuelsDao.updateByPrimaryKey(fuels);
 	}
+	
+	@Transactional(rollbackFor = Exception.class)
+	public void delFuels(Integer[] exelId) {
+		fuelsDao.deleteArray(exelId);
+	}
 }
