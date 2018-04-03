@@ -135,7 +135,8 @@
 								width: '20%',
 								formatter: function(value,row,index){
 									var dt = new Date(value);
-									return dt.getFullYear()+"-"+dt.getMonth()+"-"+dt.getDate();
+									var i = dt.getMonth() + 1;
+									return dt.getFullYear()+"-"+ i +"-"+dt.getDate();
 								}
 							},
 							{

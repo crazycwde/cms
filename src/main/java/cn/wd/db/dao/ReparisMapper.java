@@ -2,7 +2,7 @@ package cn.wd.db.dao;
 
 import cn.wd.pojo.Reparis;
 
-public interface ReparisMapper {
+public interface ReparisMapper extends BaseMapper<Reparis>{
     int deleteByPrimaryKey(Integer id);
 
     int insert(Reparis record);

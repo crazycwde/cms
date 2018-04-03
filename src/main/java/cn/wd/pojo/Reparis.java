@@ -1,6 +1,11 @@
 package cn.wd.pojo;
 
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 public class Reparis {
     private Integer id;
@@ -9,6 +14,7 @@ public class Reparis {
 
     private Integer exelId;
 
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date time;
 
     private String location;
@@ -42,7 +48,7 @@ public class Reparis {
     }
 
     public Date getTime() {
-        return time;
+    	return time;
     }
 
     public void setTime(Date time) {
@@ -72,4 +78,12 @@ public class Reparis {
     public void setType(String type) {
         this.type = type == null ? null : type.trim();
     }
+
+	@Override
+	public String toString() {
+		return "Reparis [id=" + id + ", carId=" + carId + ", exelId=" + exelId + ", time=" + time + ", location="
+				+ location + ", fee=" + fee + ", type=" + type + "]";
+	}
+    
+    
 }

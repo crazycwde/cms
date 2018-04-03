@@ -25,8 +25,6 @@
 		<!-- mysql的jdbc连接版本 -->
 		<mysql.version>5.1.44</mysql.version>
 		<cxf.version>3.1.11</cxf.version>
-		<!-- 二维码处理 -->
-		<zxing.version>3.2.1</zxing.version>
 	</properties>
   <dependencies>
  <dependency>
@@ -44,6 +42,11 @@
 		    <groupId>javax.cache</groupId>
 		    <artifactId>cache-api</artifactId>
 		    <version>1.0.0</version>
+		</dependency>
+		<dependency>
+    	<groupId>javax.mail</groupId>
+    	<artifactId>mail</artifactId>
+    	<version>1.4.7</version>
 		</dependency>
 		
 		<dependency>
@@ -267,18 +270,7 @@
 		</dependency>
 		<!-- office处理框架 end -->
 
-		<!-- zxing二维码处理 start -->
-		<dependency>
-			<groupId>com.google.zxing</groupId>
-			<artifactId>core</artifactId>
-			<version>${zxing.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.google.zxing</groupId>
-			<artifactId>javase</artifactId>
-			<version>${zxing.version}</version>
-		</dependency>
-		<!-- zxing end -->
+		
 
 		<!-- 图片处理类 -->
 		<dependency>

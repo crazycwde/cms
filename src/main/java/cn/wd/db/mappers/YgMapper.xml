@@ -14,10 +14,11 @@
     <result column="phone" property="phone" jdbcType="VARCHAR" />
     <result column="postcode" property="postcode" jdbcType="VARCHAR" />
     <result column="departId" property="departid" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
     id, yg_id, name, sex, nationality, birth, political, adress, idcard, phone, postcode, 
-    departId
+    departId, email
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -33,13 +34,13 @@
     insert into j_yg (id, yg_id, name, 
       sex, nationality, birth, 
       political, adress, idcard, 
-      phone, postcode, departId
-      )
+      phone, postcode, departId, 
+      email)
     values (#{id,jdbcType=INTEGER}, #{ygId,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
       #{sex,jdbcType=VARCHAR}, #{nationality,jdbcType=VARCHAR}, #{birth,jdbcType=VARCHAR}, 
       #{political,jdbcType=VARCHAR}, #{adress,jdbcType=VARCHAR}, #{idcard,jdbcType=VARCHAR}, 
-      #{phone,jdbcType=VARCHAR}, #{postcode,jdbcType=VARCHAR}, #{departid,jdbcType=VARCHAR}
-      )
+      #{phone,jdbcType=VARCHAR}, #{postcode,jdbcType=VARCHAR}, #{departid,jdbcType=VARCHAR}, 
+      #{email,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="cn.wd.pojo.Yg" >
     insert into j_yg
@@ -80,6 +81,9 @@
       <if test="departid != null" >
         departId,
       </if>
+      <if test="email != null" >
+        email,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -117,6 +121,9 @@
       </if>
       <if test="departid != null" >
         #{departid,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -156,6 +163,9 @@
       <if test="departid != null" >
         departId = #{departid,jdbcType=VARCHAR},
       </if>
+      <if test="email != null" >
+        email = #{email,jdbcType=VARCHAR},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -171,7 +181,8 @@
       idcard = #{idcard,jdbcType=VARCHAR},
       phone = #{phone,jdbcType=VARCHAR},
       postcode = #{postcode,jdbcType=VARCHAR},
-      departId = #{departid,jdbcType=VARCHAR}
+      departId = #{departid,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

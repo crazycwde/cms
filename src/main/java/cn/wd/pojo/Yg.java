@@ -25,6 +25,8 @@ public class Yg {
 
     private String departid;
 
+    private String email;
+
     public Integer getId() {
         return id;
     }
@@ -119,5 +121,13 @@ public class Yg {
 
     public void setDepartid(String departid) {
         this.departid = departid == null ? null : departid.trim();
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email == null ? null : email.trim();
     }
 }

@@ -14,6 +14,7 @@
 		<context:annotation-config/>
 		
 		<context:component-scan base-package="cn.wd"></context:component-scan>
+		<context:property-placeholder location="classpath:javaMail.properties"/>
 		
 		<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
 			<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
@@ -35,4 +36,29 @@
 		<bean class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 			<property name="dataSource" ref="dataSource"></property>
 		</bean>
+		<!-- 邮件发送 -->
+		<bean id="mailMessage" class="org.springframework.mail.SimpleMailMessage">    
+        <property name="from" value ="${mail.from.mail}"></property>    
+    	</bean>  
+      
+      
+    <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">    
+        <property name="defaultEncoding" value="UTF-8" />    
+        <property name="host" value="${mail.host}" />    
+        <property name="username" value="${mail.from.mail}" />    
+        <property name="password" value="${mail.license}" />    
+        <property name="javaMailProperties">    
+            <props>    
+                <!-- 设置认证开关 -->    
+                <prop key="mail.smtp.auth">true</prop>    
+                <!-- 启动调试开关 -->    
+                <prop key="mail.debug">true</prop>    
+                <!-- 设置发送延时 -->  
+                <prop key="mail.smtp.timeout">0</prop>  
+                <prop key="mail.smtp.socketFactory.class">${mail.smtp.socketFactory.class}</prop>  
+                <prop key="mail.smtp.port">${mail.smtp.port}</prop>  
+                <prop key="mail.smtp.socketFactory.port">${mail.smtp.socketFactory.port}</prop>  
+            </props>    
+        </property>    
+    </bean>  
 </beans>

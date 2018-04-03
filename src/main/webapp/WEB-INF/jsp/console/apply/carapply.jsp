@@ -100,7 +100,8 @@ body {
 				success : function(data) {
 					$.messager.progress('close');
 					if(data == 'success'){
-						$.messager.alert("成功", "申请用车成功，等待审核通过", "info");
+						$.messager.alert("成功", "申请用车成功，邮件已发送，等待审核通过", "info");
+						$("#homeMainCenterDg").dialog('close');
 					} else {
 						$.messager.alert("错误", data, "warning");
 					}

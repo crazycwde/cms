@@ -71,7 +71,7 @@ public class FuelsController extends BaseController{
 	 */
 	@RequestMapping("delFuels.do")
 	@ResponseBody
-	public String delFuels(@RequestParam("exelId[]")Integer exelId[]) {
+	public String delFuels(@RequestParam("exelId[]")Integer[] exelId) {
 		try {
 			fService.delFuels(exelId);
 		}catch(Exception e) {

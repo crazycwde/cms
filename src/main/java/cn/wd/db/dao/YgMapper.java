@@ -2,7 +2,7 @@ package cn.wd.db.dao;
 
 import cn.wd.pojo.Yg;
 
-public interface YgMapper {
+public interface YgMapper extends BaseMapper<Yg>{
     int deleteByPrimaryKey(Integer id);
 
     int insert(Yg record);

@@ -26,50 +26,6 @@
 <script type="text/javascript" src="${pageContext.servletContext.contextPath }/js/highcharts/highcharts-zh_CN.js"></script>
 
 <link rel="stylesheet" href="${pageContext.servletContext.contextPath }/js/msgTX/css/iziToast.min.css">
-<script type="text/javascript">
-$(function (){
-	$(".trigger-warning").on('click', function (event) {
-	    event.preventDefault();
-		
-	    $.ajax({
-			url:getContextPath() + "/console/txmsg/txMsgList.do",
-			dataType: "json",
-			success: function(data) {
-				for(var o in data) {
-					if(o=='dltx'){
-						iziToast.warning({
-					        title: '',
-					        message: data[o],
-					        position: 'bottomCenter',
-					        transitionIn: 'flipInX',
-					        transitionOut: 'flipOutX',
-					    });
-					}
-					if(o=='zskg'){
-						console.log(data[o]);
-						iziToast.warning({
-					        title: '',
-					        message: data[o],
-					        position: 'bottomCenter',
-					        transitionIn: 'flipInX',
-					        transitionOut: 'flipOutX',
-					    });
-					}
-					if(o=='empty'){
-						iziToast.warning({
-					        title: '',
-					        message: data[o],
-					        position: 'bottomCenter',
-					        transitionIn: 'flipInX',
-					        transitionOut: 'flipOutX',
-					    });
-					}
-				}
-			},
-		}); 
-	}); 
-});
-</script>
 </head>
 
 <body>
@@ -153,16 +109,6 @@ $(function (){
 						<li><a href="#" onclick="changeHomeCenter('/console/user/userListUI.do', '用户维护')"> <img src="${pageContext.servletContext.contextPath}/ui/gdian/images/xt01.png" alt="">
 								<p>用户维护</p>
 						</a></li>
-						<li><a href="#" onclick="changeHomeCenter('/console/role/roleListUI.do', '角色维护')"> <img src="${pageContext.servletContext.contextPath}/ui/gdian/images/xt02.png" alt="">
-								<p>角色维护</p>
-						</a></li>
-						<li><a href="#" onclick="changeHomeCenter('/console/sys/envListUI.do', '系统环境设置')"> <img src="${pageContext.servletContext.contextPath}/ui/gdian/images/xt03.png" alt="">
-								<p>系统环境设置</p>
-						</a></li>
-						<%-- 
-						<li><a href="#" onclick="changeHomeCenter('/console/sys/dwczrListUI.do', '单位人事信息操作员设置')"> <img src="${pageContext.servletContext.contextPath}/ui/gdian/images/xt04.png" alt="">
-								<p>单位人事信息操作员设置</p>
-						</a></li>--%>
 					</ul>
 				</div>
 			</div>

@@ -16,6 +16,7 @@ public class ApplyService {
 	private static final OperErrCode 请填入申请人部门 = new OperErrCode("11002", "请填入申请人部门");
 	private static final OperErrCode 请填入外出时间 = new OperErrCode("11003", "请填入外出时间");
 	private static final OperErrCode 请填入外出事由 = new OperErrCode("11004", "请填入外出事由");
+	
 
 	@Autowired
 	private ApplyMapper_Ext applyDao;
@@ -37,4 +38,5 @@ public class ApplyService {
 		
 		applyDao.insertSelective(apply);
 	}
+	
 }
