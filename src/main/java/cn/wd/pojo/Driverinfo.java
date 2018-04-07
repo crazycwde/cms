@@ -1,6 +1,6 @@
 package cn.wd.pojo;
 
-public class Dirverinfo {
+public class Driverinfo {
     private Integer id;
 
     private Integer driverId;

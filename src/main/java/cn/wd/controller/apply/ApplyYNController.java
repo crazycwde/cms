@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import cn.wd.controller.BaseController;
 import cn.wd.pojo.Apply;
+import cn.wd.pojo.Driverinfo;
 import cn.wd.service.OperException;
 import cn.wd.service.apply.ApplyYNService;
 import cn.wd.utils.EasyuiComboBoxItem;
@@ -67,5 +68,22 @@ public class ApplyYNController extends BaseController {
 			return e.getMessage();
 		}
 		return SUCCESS;
+	}
+	
+	@RequestMapping("queryDriverUI.do")
+	public String queryDriverUI() {
+		return ROOT + "queryDriverUI";
+	}
+	
+	@RequestMapping("getDriverDatagrid.do")
+	@ResponseBody
+	public EasyuiDatagrid<Driverinfo> getDriverDatagrid(){
+		return aYNService.getDriverDatagrid();
+	}
+	
+	@RequestMapping("queryDriver.do")
+	@ResponseBody
+	public Driverinfo queryDriver(Integer id) {
+		return aYNService.getDriverinfo(id);
 	}
 }

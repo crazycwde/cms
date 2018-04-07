@@ -30,8 +30,12 @@
 				<td><input id="reason" name="reason" class="easyui-textbox" readonly="true" value="${apply.reason}" /></td>
 			</tr>
 			<tr>
-				<td align="right">申  请  状 	态：</td>
+				<td align="right">申  请  状  态：</td>
 				<td><input id="state" name="state" class="easyui-combobox" type="text" /></td>
+			</tr>
+			<tr>
+				<td align="right">配  置  司  机：</td>
+				<td><input id="driver" name="driver" /></td>
 			</tr>
 		</table>
 		<table align="center">
@@ -43,6 +47,40 @@
 		</table>
 	</form>
 	<script type="text/javascript">
+	var DriverOpt = {
+			queryDriver : function(searchboxId, title, params){
+				queryDriverDiv = $("<div id='queryDriverDiv'></div>");
+				driverInfo = null;
+				queryDriverDiv.appendTo(document.body);
+				$("#queryDriverDiv").dialog({
+					title : title,
+					href : getContextPath() + '/console/applyYN/queryDriverUI.do',
+					width : 512,
+					height : 300,
+					closed : false,
+					cache : false,
+					modal : true,
+					queryParams : params,
+					onClose : function() {
+						if (driverInfo != null) {
+							$("#" + searchboxId).searchbox("setValue", driverInfo.ygId);
+						}
+						queryDriverDiv.remove();
+					}
+				});
+			},
+		};
+	
+		$("#driver").searchbox({
+			searcher:function(){
+				DriverOpt.queryDriver("driver", "选择执行司机", {
+					isEdit : true
+				});	
+			},
+			value : "${driver}",
+			prompt : "请点击右侧图标"
+		});
+	
 		$("#name").textbox({
 			required:true,
 		});

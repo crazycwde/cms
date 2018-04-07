@@ -55,6 +55,12 @@
 					width:'15%',
 					align:'center',
 				},
+				{
+					field:'driver',
+					title:'司机',
+					width:'10%',
+					align:'center',
+				},
 				]]
 			});
 	})

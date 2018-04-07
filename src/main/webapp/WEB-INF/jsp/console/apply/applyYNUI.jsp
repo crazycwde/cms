@@ -66,7 +66,7 @@
 						field:'checkbox',
 						title: '',
 						align:'center',
-						width:'10%',
+						width:'3%',
 						checkbox : true,
 					},
 					{
@@ -103,6 +103,12 @@
 						field:'state',
 						title:'状态',
 						width:'15%',
+						align:'center',
+					},
+					{
+						field:'driver',
+						title:'司机',
+						width:'10%',
 						align:'center',
 					},
 				]]

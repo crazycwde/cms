@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="cn.wd.db.dao.ApplyMapper_Ext" >
-  <resultMap id="BaseResultMap" type="cn.wd.pojo.Apply" >
+ <resultMap id="BaseResultMap" type="cn.wd.pojo.Apply" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="department" property="department" jdbcType="VARCHAR" />
@@ -9,9 +9,10 @@
     <result column="outtime" property="outtime" jdbcType="DATE" />
     <result column="reason" property="reason" jdbcType="VARCHAR" />
     <result column="state" property="state" jdbcType="VARCHAR" />
+    <result column="driver" property="driver" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, name, department, destination, outtime, reason, state
+    id, name, department, destination, outtime, reason, state, driver
   </sql>
  	 <select id="getCount" resultType="java.lang.Integer" >
   		select count(*) from j_apply 

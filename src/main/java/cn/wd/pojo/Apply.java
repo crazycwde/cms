@@ -12,13 +12,15 @@ public class Apply {
     private String department;
 
     private String destination;
-    
+
     @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date outtime;
 
     private String reason;
 
     private String state;
+
+    private String driver;
 
     public Integer getId() {
         return id;
@@ -74,5 +76,13 @@ public class Apply {
 
     public void setState(String state) {
         this.state = state == null ? null : state.trim();
+    }
+
+    public String getDriver() {
+        return driver;
+    }
+
+    public void setDriver(String driver) {
+        this.driver = driver == null ? null : driver.trim();
     }
 }
