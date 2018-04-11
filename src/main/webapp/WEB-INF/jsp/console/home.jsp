@@ -1,4 +1,4 @@
-﻿	﻿<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+﻿		﻿<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
@@ -66,7 +66,7 @@
 		</div>
 
 
-		<div id="homeMainCenter" data-options="region:'center',border:false" style="margin-top: 120px;">
+		<div id="homeMainCenter" data-options="region:'center',border:false" style="margin-top: 120px;margin-left: 160px;">
 			<div id="homeMainCenterDg" style="display: none;"></div>
 			<div id="homeCommon" style="display: none;"></div>
 			<div class="container">
@@ -80,7 +80,7 @@
 						
 					</ul>
 				</div>
-				<div class="man-group">
+				<div class="man-group man-group01">
 					<p class="tit">信息查询</p>
 					<ul>
 						<li><a href="#" onclick="changeHomeCenter('/console/query/fuelsUI.do', '油耗信息管理')"> <img src="${pageContext.servletContext.contextPath}/ui/gdian/images/per01.png" alt="">
@@ -89,7 +89,12 @@
 						<li><a href="#" onclick="changeHomeCenter('/console/query/reparisUI.do', '维修信息管理')"> <img src="${pageContext.servletContext.contextPath}/ui/gdian/images/per02.png" alt="">
 								<p>维修信息</p>
 						</a></li>
-						
+						<li><a href="#" onclick="changeHomeCenter('/console/car/carInfoUI.do', '车辆信息管理')"> <img src="${pageContext.servletContext.contextPath}/ui/gdian/images/ser02.png" alt="">
+								<p>车辆信息</p>
+						</a></li>
+						<li><a href="#" onclick="changeHomeCenter('/console/query/carDriverUI.do', '司机车辆列表')"> <img src="${pageContext.servletContext.contextPath}/ui/gdian/images/per01.png" alt="">
+								<p>司机车辆信息</p>
+						</a></li>
 					</ul>
 				</div>
 				<div class="man-group">

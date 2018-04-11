@@ -12,6 +12,13 @@
  <sql id="Base_Column_List" >
     id, yg_id, uname, name, pw, departId
   </sql>
+  <select id="selectList" resultMap="BaseResultMap" parameterType="cn.wd.pojo.User">
+  		select <include refid="Base_Column_List"></include> from j_user 
+  </select>
+  
+  <select id="countUser" resultType="java.lang.Integer" >
+  		select count(*) from j_user
+  </select>
   <select id="select" resultMap="BaseResultMap" parameterType="cn.wd.pojo.User">
   	select <include refid="Base_Column_List"></include> from j_user 
   		<where>

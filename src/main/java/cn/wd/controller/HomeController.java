@@ -12,5 +12,15 @@ public class HomeController {
 	public String home() {
 		return ROOT + "home";
 	}
+	
+	@RequestMapping("home1.do")
+	public String home1() {
+		return ROOT + "home1";
+	}
+	
+	@RequestMapping("home2.do")
+	public String home2() {
+		return ROOT + "home2";
+	}
 
 }

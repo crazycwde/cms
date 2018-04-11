@@ -39,9 +39,16 @@ public class LoginController extends BaseController {
 		user = userService.getUser(user);
 		if (user != null) {
 			session.setAttribute("loginInfo", user);
-			return SUCCESS;
+			session.setAttribute("uname", uname);
+			if("0001".equals(user.getYgId())) {
+				return "Lingdao";
+			}else if("0002".equals(user.getYgId())) {
+				return SUCCESS;
+			}else {
+				return "Siji";
+			}
 		} else
-			return "";
+			return "登陆名或密码错误";
 	}
 
 	@RequestMapping("quit.do")

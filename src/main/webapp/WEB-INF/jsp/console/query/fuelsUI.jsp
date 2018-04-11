@@ -24,6 +24,13 @@
 		</table>
 	</div>
 	<script type="text/javascript">
+	$(function(){
+		var uname = '<%=(String)session.getAttribute("uname")%>';
+		if(uname == 'wx'){
+			$("#updateFuels").hide();
+			$("#deletFuels").hide();
+		}
+	});
 	$("#insertFuels").linkbutton({
 		iconCls : "icon-add",
 	});
@@ -113,7 +120,7 @@
 								field: "checkbox",
 								title: '',
 								align: 'center',
-								width: '5%',
+								width: '3%',
 								checkbox : true
 							},
 	                    	{
@@ -149,7 +156,7 @@
 								field: "location",
 								title: '目的地',
 								align: 'center',
-								width: '20%',
+								width: '16%',
 							}]
 	                    ]
 				})

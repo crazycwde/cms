@@ -7,7 +7,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import cn.wd.controller.BaseController;
 import cn.wd.pojo.Carfuel;
+import cn.wd.pojo.Carinfo;
 import cn.wd.pojo.Carreparis;
+import cn.wd.pojo.VCarDriver;
 import cn.wd.service.query.QueryService;
 import cn.wd.utils.EasyuiDatagrid;
 
@@ -39,5 +41,23 @@ public class QueryController extends BaseController{
 	@ResponseBody
 	public EasyuiDatagrid<Carreparis> getEasyuiDatagridReparis(){
 		return qService.getCarReparisList();
+	}
+	
+	@RequestMapping("car.do")
+	@ResponseBody
+	public EasyuiDatagrid<Carinfo> getEasyuiDatagridCar(){
+		return qService.getCarinfoList();
+	}
+	
+	@RequestMapping("carDriverUI.do")
+	public String carDriverUI() {
+		return ROOT + "carDriverUI";
+	}
+	
+	@RequestMapping("carDriver.do")
+	@ResponseBody
+	public EasyuiDatagrid<VCarDriver> getEasyuiDatagridVCarDriver(){
+		return qService.getEasyuiDatagridVCarDriver();
+				
 	}
 }

@@ -21,6 +21,13 @@
 		</table>
 	</div>
 	<script type="text/javascript">
+	$(function(){
+		var uname = '<%=(String)session.getAttribute("uname")%>';
+		if(uname == 'wx'){
+			$("#updateReparis").hide();
+			$("#delReparis").hide();
+		}
+	});
 	var reparisOpt = {
 			newDialog : function(dialogId, url, title, param){
 				//var dialogOpt = "<div id='" + dialogId + "'></div>";

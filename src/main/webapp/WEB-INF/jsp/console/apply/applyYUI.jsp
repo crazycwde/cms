@@ -42,6 +42,11 @@
 					title:'外出时间',
 					width:'15%',
 					align:'center',
+					formatter: function(value,row,index){
+						var dt = new Date(value);
+						var i = dt.getMonth() + 1;
+						return dt.getFullYear()+"-"+ i +"-"+dt.getDate();
+					}
 				},
 				{
 					field:'reason',

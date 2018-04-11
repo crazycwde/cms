@@ -19,6 +19,12 @@
 		</table>
 	</div>
 	<script type="text/javascript">
+	$(function(){
+		var uname = '<%=(String)session.getAttribute("uname")%>';
+		if(uname == 'wx'){
+			$("#applyYN").hide();
+		}
+	});
 		var applyYNOpt = {
 			newDialog : function(dialogId, url, title, param){
 				var dialogObj = $('<div id="' + dialogId + '"></div>');
@@ -92,6 +98,11 @@
 						title:'外出时间',
 						width:'15%',
 						align:'center',
+						formatter: function(value,row,index){
+							var dt = new Date(value);
+							var i = dt.getMonth() + 1;
+							return dt.getFullYear()+"-"+ i +"-"+dt.getDate();
+						}
 					},
 					{
 						field:'reason',
@@ -114,7 +125,6 @@
 				]]
 			});
 		});
-		
 	</script>
 </body>
 </html>

@@ -233,12 +233,15 @@
 				success : function(data) {
 					loginFlag = true;
 					btn.button('reset');
-					if (data == 'success') {
+					if (data == 'Lingdao') {
 						//验证通过，跳转页面
 						window.location.href = '${pageContext.servletContext.contextPath }/console/home.do';
-					} else if (data == 'Lingdao') {
+					} else if (data == 'success') {
 						//验证通过，跳转页面
 						window.location.href = '${pageContext.servletContext.contextPath }/console/home1.do';
+					} else if (data == 'Siji') {
+						//验证通过，跳转页面
+						window.location.href = '${pageContext.servletContext.contextPath }/console/home2.do';
 					} else {
 						swal("登录失败： " + data);
 						$("#unameInput").select();
